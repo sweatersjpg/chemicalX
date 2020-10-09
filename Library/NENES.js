@@ -486,7 +486,11 @@ function windowResized() {
   var x = Math.floor((windowWidth - width) / 2);
   var y = Math.floor((windowHeight - height) / 2);
   cvs.position(x, y);
-  if(drawFN.input) drawFN.input.position(-windowWidth,-windowHeight, 'fixed');
+  if(drawFN.input) {
+    drawFN.input.position(-windowWidth,-windowHeight, 'fixed');
+    drawFN.input.elt.style.position = "fixed";
+  }
+
   resizeCanvas(WD.W, WD.H);
 }
 
