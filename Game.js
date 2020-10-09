@@ -29,6 +29,7 @@ function Game(level) {
 
   this.input.elt.focus();
   this.input.position(-windowWidth,-windowHeight);
+  this.input.elt.style.fontSize = "20px";
 
   this.arguments = [];
 
