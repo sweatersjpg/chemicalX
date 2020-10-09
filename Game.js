@@ -28,7 +28,7 @@ function Game(level) {
   this.input.elt.onfocus = () => { this.input.focused = true }
 
   this.input.elt.focus();
-  this.input.position(-windowWidth,-windowHeight);
+  this.input.position(-windowWidth,-windowHeight, 'fixed');
   this.input.elt.style.fontSize = "20px";
 
   this.arguments = [];
