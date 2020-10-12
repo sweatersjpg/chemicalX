@@ -6,7 +6,7 @@ let DEBUG = false;
 let data = { password:{ secret:"chemicalx"}}
 
 function init_() {
-  setSpriteSheet("spriteSheet");
+  setSpriteSheet("nenesLogo");
   setNumberOfLayers(6);
   lset(1);
 
@@ -95,11 +95,13 @@ function Game() {
     if(this.s < 30) {
       this.output = "LOGIN SUCCESSFUL~n";
     } else if(this.s == 30) {
-      this.output += "running experiment~n";
-    } else if(this.s < 30+51) {
-      this.output += "_";
+      downloadImage();
     } else {
-      drawFN = new Tycoon();
+      cls(0);
+      // palset([1,0,64]);
+      // spr(0, 0, 0, 16, 16);
+      // spr(256,256,0,16,16);
+
     }
   }
 
@@ -193,6 +195,19 @@ function getHeight(str, x) {
 
   return count * 8;
 
+}
+
+function downloadImage() {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'https://cdn.discordapp.com/attachments/581184222807588865/765236152952684575/who.png');
+  element.setAttribute('download', 'who.png');
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
 }
 
 function changeStringRandom(str) {
