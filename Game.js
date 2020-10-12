@@ -55,6 +55,7 @@ function Game() {
         else if(this.output == "booting -") this.output = "booting \\";
       }
     } else if(this.s == 90) {
+      setSpriteSheet("spriteSheet");
       this.output = "Boot successful~nLoading database~n";
     } else if(this.s <= 140) {
       this.print("_");
@@ -98,9 +99,9 @@ function Game() {
       downloadImage();
     } else {
       cls(0);
-      // palset([1,0,64]);
-      // spr(0, 0, 0, 16, 16);
-      // spr(256,256,0,16,16);
+      palset([1,0,64]);
+      spr(0, 0, 0, 16, 16);
+      spr(256,256,0,16,16);
 
     }
   }
