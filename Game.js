@@ -199,7 +199,7 @@ function getHeight(str, x) {
 
 function downloadImage() {
   var element = document.createElement('a');
-  element.setAttribute('href', 'https://cdn.discordapp.com/attachments/581184222807588865/765236152952684575/who.png');
+  element.setAttribute('href', 'who.png');
   element.setAttribute('download', 'who.png');
 
   element.style.display = 'none';
