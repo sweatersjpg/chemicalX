@@ -11,20 +11,26 @@ function put(s, x, y, c) {
   if(typeof y === 'undefined') y = pointer_.y;
   c = c || pointer_.c;
   if(typeof c == 'string') c = parseInt(c, 16);
-  else s = String(s);
+  // else s = String(s);
+  let input = false;
+  if(typeof s === "object") {
+    input = s;
+    s = input.value();
+  } else s = String(s);
+
   let dy = 0;
   let dx = 0;
   let sw = 8;
   let dw = sw*D.S;
   let oldC = c;
   for (var i = 0; i <= s.length; i++) {
-    if(putInput && putInput.focused) {
+    if(input && input.focused) {
       c = oldC;
-      if(i >= putInput.elt.selectionStart && i < putInput.elt.selectionEnd) {
+      if(i >= input.elt.selectionStart && i < input.elt.selectionEnd) {
         c = 0;
         palset([1,1,1,1,1]);
         spr(0, x+dx, y+dy, 1, 1, false, 0, 8, 8);
-      } else if(i == putInput.elt.selectionStart && frameCount % 5 > 5/2) {
+      } else if(i == input.elt.selectionStart && frameCount % 5 > 5/2) {
         c = 0;
         palset([1,1,1,1,1]);
         spr(0, x+dx, y+dy, 1, 1, false, 0, 8, 8);

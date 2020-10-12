@@ -19,7 +19,7 @@ function init_() {
 
 // ------- main loops -------
 
-function Game(level) {
+function Game() {
   this.output = "booting -";
 
   this.input = createInput('');
@@ -80,15 +80,26 @@ function Game(level) {
       this.setFunction(this.getPassword, true);
     } else {
       cls(16);
-      this.output += "ERROR: BAsE64 cmVkY2F0~nUsername Incorrect~nEnter username:~n";
+      this.output += "ERROR: b64 cmVkY2F0~nUsername Incorrect~nEnter username:~n";
     }
   }
   this.getPassword = (password) => {
-    if(password.toLowerCase() == "c8hf15O2") {
-
+    if(password.toLowerCase() == "c8hf15o2") {
+      this.setFunction(this.success, false);
     } else {
       cls(16);
       this.output += "ERROR: UEZBUyBmb3JtdWxh~nPassword not correct~n"
+    }
+  }
+  this.success = () => {
+    if(this.s < 30) {
+      this.output = "LOGIN SUCCESSFUL~n";
+    } else if(this.s == 30) {
+      this.output += "running experiment~n";
+    } else if(this.s < 30+51) {
+      this.output += "_";
+    } else {
+      drawFN = new Tycoon();
     }
   }
 
@@ -113,7 +124,7 @@ function Game(level) {
     if(!this.wait) return;
     put("> ", 0, getHeight(this.output));
     setInput(this.input);
-    put(this.input.value());
+    put(this.input);
   }
 
   this.print = (value) => {
